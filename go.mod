@@ -1,4 +1,4 @@
-module github.com/saucesteals/sms
+module github.com/miromiro11/sms
 
 go 1.19
 

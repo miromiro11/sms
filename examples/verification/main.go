@@ -7,11 +7,11 @@ import (
 	"log"
 	"time"
 
+	"github.com/miromiro11/sms"
+	"github.com/miromiro11/sms/smspva"
+	"github.com/miromiro11/sms/textverified"
+	"github.com/miromiro11/sms/truverifi"
 	"github.com/nyaruka/phonenumbers"
-	"github.com/saucesteals/sms"
-	"github.com/saucesteals/sms/smspva"
-	"github.com/saucesteals/sms/textverified"
-	"github.com/saucesteals/sms/truverifi"
 )
 
 var (

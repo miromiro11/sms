@@ -9,8 +9,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/miromiro11/sms"
 	"github.com/nyaruka/phonenumbers"
-	"github.com/saucesteals/sms"
 )
 
 type Client struct {

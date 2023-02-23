@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/miromiro11/sms"
 	"github.com/nyaruka/phonenumbers"
-	"github.com/saucesteals/sms"
 )
 
 var (

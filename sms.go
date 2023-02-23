@@ -34,4 +34,5 @@ type Client interface {
 	GetPhoneNumber(ctx context.Context, service string, country string) (*PhoneNumber, error)
 	GetMessages(ctx context.Context, phoneNumber *PhoneNumber) ([]string, error)
 	CancelPhoneNumber(ctx context.Context, phoneNumber *PhoneNumber) error
+	ReusePhoneNumber(ctx context.Context, phoneNumber *PhoneNumber) error
 }

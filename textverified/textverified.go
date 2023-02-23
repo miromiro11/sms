@@ -233,3 +233,16 @@ func (c *Client) CancelPhoneNumber(ctx context.Context, phoneNumber *sms.PhoneNu
 
 	return c.do(ctx, http.MethodPut, "Verifications/"+metadata.id+"/Cancel", nil, nil)
 }
+
+func (c *Client) ReusePhoneNumber(ctx context.Context, phoneNumber *sms.PhoneNumber) error{
+	if phoneNumber.Cancelled() {
+		return nil
+	}
+
+	metadata, ok := phoneNumber.Metadata.(metadata)
+	if !ok {
+		return sms.ErrInvalidMetadata
+	}
+
+	return c.do(ctx, http.MethodPut, "Verifications/"+metadata.id+"/Reuse", nil, nil)
+}

@@ -239,10 +239,20 @@ func (c *Client) ReusePhoneNumber(ctx context.Context, phoneNumber *sms.PhoneNum
 		return nil
 	}
 
-	metadata, ok := phoneNumber.Metadata.(metadata)
+	var resp verification
+
+	mdata, ok := phoneNumber.Metadata.(metadata)
 	if !ok {
 		return sms.ErrInvalidMetadata
 	}
 
-	return c.do(ctx, http.MethodPut, "Verifications/"+metadata.id+"/Reuse", nil, nil)
+	err :=  c.do(ctx, http.MethodPut, "Verifications/"+mdata.id+"/Reuse", nil, resp)
+
+	if err	!= nil {
+		return err
+	}
+
+	phoneNumber.Metadata = metadata{id: resp.ID}
+
+	return nil
 }
